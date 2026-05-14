@@ -59,6 +59,77 @@ const formMsg = document.getElementById('formMessage');
 const nameInput = document.getElementById('nameInput');
 const phoneInput = document.getElementById('phoneInput');
 const serviceInput = document.getElementById('service');
+const servicePicker = document.getElementById('servicePicker');
+const serviceSearch = document.getElementById('serviceSearch');
+const serviceDropdown = document.getElementById('serviceDropdown');
+const serviceOptions = Array.from(document.querySelectorAll('.service-option'));
+const serviceEmpty = document.getElementById('serviceEmpty');
+
+function normalizeSearch(text) {
+  return text.toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
+function openServiceDropdown() {
+  servicePicker?.classList.add('open');
+}
+
+function closeServiceDropdown() {
+  servicePicker?.classList.remove('open');
+}
+
+function filterServices(query) {
+  const normalizedQuery = normalizeSearch(query);
+  let visibleCount = 0;
+
+  serviceOptions.forEach(option => {
+    const text = normalizeSearch(option.textContent || '');
+    const isVisible = !normalizedQuery || text.includes(normalizedQuery);
+    option.classList.toggle('hidden', !isVisible);
+    if (isVisible) visibleCount += 1;
+  });
+
+  serviceEmpty?.classList.toggle('visible', visibleCount === 0);
+}
+
+function setService(value) {
+  if (serviceInput) serviceInput.value = value;
+  if (serviceSearch) serviceSearch.value = value;
+  servicePicker?.classList.remove('error');
+}
+
+if (servicePicker && serviceSearch && serviceDropdown && serviceInput) {
+  serviceSearch.addEventListener('focus', () => {
+    filterServices(serviceSearch.value);
+    openServiceDropdown();
+  });
+
+  serviceSearch.addEventListener('input', () => {
+    serviceInput.value = '';
+    servicePicker.classList.remove('error');
+    filterServices(serviceSearch.value);
+    openServiceDropdown();
+  });
+
+  serviceOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      setService(option.dataset.value || option.textContent.trim());
+      closeServiceDropdown();
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!servicePicker.contains(event.target)) {
+      closeServiceDropdown();
+    }
+  });
+
+  serviceSearch.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeServiceDropdown();
+      serviceSearch.blur();
+    }
+  });
+}
 
 if (ctaForm && formMsg && nameInput && phoneInput && serviceInput) {
   ctaForm.addEventListener('submit', async (e) => {
@@ -69,7 +140,8 @@ if (ctaForm && formMsg && nameInput && phoneInput && serviceInput) {
     const service = serviceInput.value.trim();
 
     let valid = true;
-    [nameInput, phoneInput, serviceInput].forEach(el => el.classList.remove('error'));
+    [nameInput, phoneInput, serviceSearch].forEach(el => el?.classList.remove('error'));
+    servicePicker?.classList.remove('error');
 
     if (!name) {
       nameInput.classList.add('error');
@@ -82,7 +154,8 @@ if (ctaForm && formMsg && nameInput && phoneInput && serviceInput) {
     }
 
     if (!service) {
-      serviceInput.classList.add('error');
+      serviceSearch?.classList.add('error');
+      servicePicker?.classList.add('error');
       valid = false;
     }
 
@@ -109,6 +182,8 @@ if (ctaForm && formMsg && nameInput && phoneInput && serviceInput) {
       if (data.success) {
         showMessage('Заявка принята! Мы свяжемся с вами в ближайшее время.', 'success');
         ctaForm.reset();
+        serviceInput.value = '';
+        if (serviceSearch) serviceSearch.value = '';
       } else {
         showMessage(data.message || 'Произошла ошибка. Попробуйте ещё раз.', 'error');
       }
@@ -153,8 +228,7 @@ fadeEls.forEach(el => {
 });
 
 function selectService(serviceName) {
-  const select = document.getElementById('service');
-  if (select) select.value = serviceName;
+  setService(serviceName);
 
   document.querySelector('#cta')?.scrollIntoView({
     behavior: 'smooth'
