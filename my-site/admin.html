@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Панель администратора — Заявки</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --navy: #0D2550; --mint: #47B48B; --blue: #2B7DCA;
+      --forest: #287B42; --bg: #f0f4f0; --white: #fff;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Nunito',sans-serif; background:var(--bg); color:var(--navy); }
+
+    header {
+      background:var(--navy); color:white;
+      padding:16px 32px; display:flex; align-items:center; justify-content:space-between;
+    }
+    header h1 { font-size:18px; }
+    .refresh-btn {
+      background:var(--mint); color:white; border:none;
+      padding:8px 20px; border-radius:50px; font-weight:700; cursor:pointer; font-family:inherit;
+    }
+
+    .stats-row {
+      display:flex; gap:16px; padding:24px 32px; flex-wrap:wrap;
+    }
+    .stat-box {
+      background:white; border-radius:16px; padding:20px 28px;
+      border-left:4px solid var(--mint); min-width:140px;
+    }
+    .stat-box .num  { font-size:28px; font-weight:800; color:var(--navy); }
+    .stat-box .lbl  { font-size:13px; color:#666; margin-top:4px; }
+
+    .table-wrap { padding:0 32px 40px; overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; background:white; border-radius:16px; overflow:hidden; }
+    th { background:var(--navy); color:white; padding:14px 16px; text-align:left; font-size:13px; }
+    td { padding:14px 16px; font-size:14px; border-bottom:1px solid #e8f0e9; vertical-align:top; }
+    tr:last-child td { border-bottom:none; }
+    tr:hover td { background:#f7fdf9; }
+
+    .badge {
+      display:inline-block; padding:4px 12px; border-radius:50px;
+      font-size:12px; font-weight:700;
+    }
+    .badge.new       { background:#e8f5e9; color:#287B42; }
+    .badge.in_progress { background:#e3f0ff; color:#2B7DCA; }
+    .badge.done      { background:#e8f5e9; color:#1D433E; }
+    .badge.cancelled { background:#fce8e8; color:#c0392b; }
+
+    select {
+      border:1.5px solid #e0ece5; border-radius:8px;
+      padding:4px 8px; font-family:inherit; font-size:13px; cursor:pointer;
+    }
+
+    .empty { text-align:center; padding:60px; color:#999; }
+    .loading { text-align:center; padding:60px; color:var(--mint); font-size:18px; }
+    @media(max-width:600px){
+      .stats-row { padding:16px; }
+      .table-wrap { padding:0 12px 32px; }
+      header { padding:14px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🗣️ Заявки на занятия</h1>
+  <button class="refresh-btn" onclick="loadLeads()">↻ Обновить</button>
+</header>
+
+<div class="stats-row" id="statsRow">
+  <div class="stat-box"><div class="num" id="totalCount">—</div><div class="lbl">Всего заявок</div></div>
+  <div class="stat-box"><div class="num" id="newCount">—</div><div class="lbl">Новых</div></div>
+  <div class="stat-box"><div class="num" id="progressCount">—</div><div class="lbl">В работе</div></div>
+  <div class="stat-box"><div class="num" id="doneCount">—</div><div class="lbl">Завершено</div></div>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Имя</th>
+        <th>Телефон</th>
+        <th>Услуга</th>
+        <th>Статус</th>
+        <th>Дата заявки</th>
+      </tr>
+    </thead>
+    <tbody id="leadsBody">
+      <tr><td colspan="6" class="loading">Загрузка…</td></tr>
+    </tbody>
+  </table>
+</div>
+<script>
+async function loadLeads() {
+  const body = document.getElementById('leadsBody');
+  const totalCount = document.getElementById('totalCount');
+  const newCount = document.getElementById('newCount');
+  const progressCount = document.getElementById('progressCount');
+  const doneCount = document.getElementById('doneCount');
+
+  try {
+    const res = await fetch('backend/api.php?action=leads');
+    if (!res.ok) throw new Error('Ошибка ответа сервера');
+
+    const data = await res.json();
+    const leads = data?.data?.leads || [];
+
+    totalCount.textContent = String(leads.length);
+    newCount.textContent = String(leads.filter(l => (l.status || 'new') === 'new').length);
+    progressCount.textContent = String(leads.filter(l => (l.status || '') === 'in_progress').length);
+    doneCount.textContent = String(leads.filter(l => (l.status || '') === 'done').length);
+
+    if (!leads.length) {
+      body.innerHTML = '<tr><td colspan="6" class="empty">Нет заявок</td></tr>';
+      return;
+    }
+
+    body.innerHTML = leads.map(l => `
+      <tr>
+        <td>${l.id}</td>
+        <td>${l.name}</td>
+        <td>${l.phone}</td>
+        <td>${l.service || '—'}</td>
+        <td>
+          <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+            <span class="badge ${(l.status || 'new')}">${statusLabel(l.status || 'new')}</span>
+            <select onchange="updateLeadStatus(${l.id}, this.value)">
+              <option value="new" ${(l.status || 'new') === 'new' ? 'selected' : ''}>Новая</option>
+              <option value="in_progress" ${(l.status || '') === 'in_progress' ? 'selected' : ''}>В работе</option>
+              <option value="done" ${(l.status || '') === 'done' ? 'selected' : ''}>Завершено</option>
+              <option value="cancelled" ${(l.status || '') === 'cancelled' ? 'selected' : ''}>Отменено</option>
+            </select>
+          </div>
+        </td>
+        <td>${l.created_at}</td>
+      </tr>
+    `).join('');
+  } catch (e) {
+    body.innerHTML = '<tr><td colspan="6" class="empty">Не удалось загрузить заявки</td></tr>';
+    totalCount.textContent = '0';
+    newCount.textContent = '0';
+    progressCount.textContent = '0';
+    doneCount.textContent = '0';
+  }
+}
+
+function statusLabel(status) {
+  const labels = {
+    new: 'Новая',
+    in_progress: 'В работе',
+    done: 'Завершено',
+    cancelled: 'Отменено'
+  };
+  return labels[status] || status;
+}
+
+async function updateLeadStatus(id, status) {
+  try {
+    const res = await fetch('backend/api.php?action=update_status', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, status })
+    });
+
+    const data = await res.json();
+    if (!res.ok || !data.success) {
+      throw new Error(data.message || 'Не удалось обновить статус');
+    }
+
+    await loadLeads();
+  } catch (e) {
+    alert(e.message || 'Ошибка при обновлении статуса');
+    await loadLeads();
+  }
+}
+
+loadLeads();
+</script>
+</body>
+</html>
