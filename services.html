@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Услуги и цены - Братикова Анна</title>
+  <link rel="stylesheet" href="css/style.css?v=20260528-admin-auth">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a class="logo" href="index.html#home" aria-label="На главную">
+        <div class="logo-icon">А</div>
+        <div class="logo-text">
+          <div class="name">Братикова Анна</div>
+          <div class="sub">Логопед, дефектолог, афазиолог</div>
+        </div>
+      </a>
+
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="about.html" class="nav-link">О специалисте</a></li>
+        <li><a href="index.html#intro" class="nav-link">Знакомство</a></li>
+        <li><a href="index.html#process" class="nav-link">Занятия</a></li>
+        <li><a href="services.html" class="nav-link active">Услуги</a></li>
+        <li><a href="articles.html" class="nav-link">Статьи</a></li>
+        <li><a href="index.html#children" class="nav-link">Детям</a></li>
+        <li><a href="index.html#adults" class="nav-link">Взрослым</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <button class="btn-primary" onclick="scrollToSection('#cta')">Записаться</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page-hero compact-hero">
+      <div class="section-label">Услуги</div>
+      <h1>Услуги и актуальные цены</h1>
+      <p>Цены взяты из предоставленного прайса. Для большинства детских занятий стоимость указана при курсе от 7 занятий, длительность одного занятия 45-60 минут.</p>
+    </section>
+
+    <section class="services flat-services">
+      <section class="service-group">
+        <h2>Диагностика и подготовка</h2>
+        <div class="service-cards flat-service-cards">
+          <article class="service-card">
+            <div class="service-image"><img src="images/p01.png" alt="Комплексная подробная диагностика развития"></div>
+            <h4>Комплексная подробная диагностика развития</h4>
+            <p>Оценка познавательного, речевого и моторного развития с характеристикой для ребёнка или взрослого.</p>
+            <div class="price-row">
+              <span class="price">От 6000 руб.</span>
+              <span class="book-link" onclick="selectService('Комплексная подробная диагностика развития - От 6000 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p02.png" alt="Индивидуальное занятие с детьми раннего возраста до 3 лет"></div>
+            <h4>Индивидуальное занятие с детьми раннего возраста до 3 лет</h4>
+            <p>Развивающее занятие для детей раннего возраста при отсутствии выраженных нарушений.</p>
+            <div class="price-row">
+              <span class="price">4400 руб.</span>
+              <span class="book-link" onclick="selectService('Индивидуальное занятие с детьми раннего возраста до 3 лет - 4400 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p03.png" alt="Индивидуальное занятие по подготовке к школе"></div>
+            <h4>Индивидуальное занятие по подготовке к школе</h4>
+            <p>Подготовка дошкольников к обучению: внимание, память, понимание инструкции, речь и учебные навыки.</p>
+            <div class="price-row">
+              <span class="price">4400 руб.</span>
+              <span class="book-link" onclick="selectService('Индивидуальное занятие по подготовке к школе - 4400 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p04.png" alt="Разовое занятие логопеда-дефектолога"></div>
+            <h4>Разовое занятие логопеда-дефектолога</h4>
+            <p>Формат для разовой записи или курса менее 7 занятий в месяц.</p>
+            <div class="price-row">
+              <span class="price">4000 руб.</span>
+              <span class="book-link" onclick="selectService('Разовое занятие логопеда-дефектолога - 4000 руб.')">Записаться →</span>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="service-group">
+        <h2>Логопедические занятия для детей</h2>
+        <div class="service-cards flat-service-cards">
+          <article class="service-card">
+            <div class="service-image"><img src="images/p05.png" alt="Логопедическое занятие при мономорфной дислалии"></div>
+            <h4>Логопедическое занятие при мономорфной дислалии</h4>
+            <p>Коррекция одного нарушенного звука или одной группы звуков.</p>
+            <div class="price-row">
+              <span class="price">4500 руб.</span>
+              <span class="book-link" onclick="selectService('Логопедическое занятие при мономорфной дислалии - 4500 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p06.png" alt="Логопедическое занятие при полиморфной дислалии"></div>
+            <h4>Логопедическое занятие при полиморфной дислалии</h4>
+            <p>Работа с несколькими нарушенными звуками или группами звуков.</p>
+            <div class="price-row">
+              <span class="price">4500 руб.</span>
+              <span class="book-link" onclick="selectService('Логопедическое занятие при полиморфной дислалии - 4500 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p07.png" alt="Логопедическое занятие при ФФНР"></div>
+            <h4>Логопедическое занятие при ФФНР</h4>
+            <p>Помощь при фонетико-фонематическом недоразвитии речи.</p>
+            <div class="price-row">
+              <span class="price">4500 руб.</span>
+              <span class="book-link" onclick="selectService('Логопедическое занятие при ФФНР - 4500 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p08.png" alt="Логопедическое занятие при ринолалии"></div>
+            <h4>Логопедическое занятие при ринолалии</h4>
+            <p>Работа с особенностями голоса, произношения и резонанса.</p>
+            <div class="price-row">
+              <span class="price">4500 руб.</span>
+              <span class="book-link" onclick="selectService('Логопедическое занятие при ринолалии - 4500 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p09.png" alt="Логопедическое занятие при темповой задержке речи, ЗРР"></div>
+            <h4>Логопедическое занятие при темповой задержке речи, ЗРР</h4>
+            <p>Запуск и развитие речи при задержке речевого развития.</p>
+            <div class="price-row">
+              <span class="price">5000 руб.</span>
+              <span class="book-link" onclick="selectService('Логопедическое занятие при темповой задержке речи, ЗРР - 5000 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p10.png" alt="Логопедическое занятие при алалии"></div>
+            <h4>Логопедическое занятие при алалии</h4>
+            <p>Системная работа над пониманием, запуском и развитием речи.</p>
+            <div class="price-row">
+              <span class="price">4500 руб.</span>
+              <span class="book-link" onclick="selectService('Логопедическое занятие при алалии - 4500 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p11.png" alt="Логопедическое занятие при ОНР I уровня"></div>
+            <h4>Логопедическое занятие при ОНР I уровня</h4>
+            <p>Развитие речевой системы при общем недоразвитии речи I уровня.</p>
+            <div class="price-row">
+              <span class="price">4600 руб.</span>
+              <span class="book-link" onclick="selectService('Логопедическое занятие при ОНР I уровня - 4600 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p12.png" alt="Логопедическое занятие при ОНР II уровня"></div>
+            <h4>Логопедическое занятие при ОНР II уровня</h4>
+            <p>Коррекционная работа при общем недоразвитии речи II уровня.</p>
+            <div class="price-row">
+              <span class="price">4500 руб.</span>
+              <span class="book-link" onclick="selectService('Логопедическое занятие при ОНР II уровня - 4500 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p13.png" alt="Логопедическое занятие при ОНР III уровня"></div>
+            <h4>Логопедическое занятие при ОНР III уровня</h4>
+            <p>Развитие связной речи, словаря, грамматики и звукопроизношения.</p>
+            <div class="price-row">
+              <span class="price">4500 руб.</span>
+              <span class="book-link" onclick="selectService('Логопедическое занятие при ОНР III уровня - 4500 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p14.png" alt="Логопедическое занятие при дисграфии, дислексии"></div>
+            <h4>Логопедическое занятие при дисграфии, дислексии</h4>
+            <p>Коррекция трудностей письма и чтения.</p>
+            <div class="price-row">
+              <span class="price">4600 руб.</span>
+              <span class="book-link" onclick="selectService('Логопедическое занятие при дисграфии, дислексии - 4600 руб.')">Записаться →</span>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="service-group">
+        <h2>Дефектолог и комплексные занятия</h2>
+        <div class="service-cards flat-service-cards">
+          <article class="service-card">
+            <div class="service-image"><img src="images/p15.png" alt="Занятие с дефектологом"></div>
+            <h4>Занятие с дефектологом</h4>
+            <p>Развитие познавательных функций, учебных навыков и базовых предпосылок обучения.</p>
+            <div class="price-row">
+              <span class="price">4600 руб.</span>
+              <span class="book-link" onclick="selectService('Занятие с дефектологом - 4600 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p16.png" alt="Комбинированное занятие при ЗПР"></div>
+            <h4>Комбинированное занятие при ЗПР</h4>
+            <p>Формат логопед + дефектолог для детей с задержкой психического развития.</p>
+            <div class="price-row">
+              <span class="price">4600 руб.</span>
+              <span class="book-link" onclick="selectService('Комбинированное занятие при ЗПР - 4600 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p17.png" alt="Комбинированное занятие при ЗПРР"></div>
+            <h4>Комбинированное занятие при ЗПРР</h4>
+            <p>Логопедическая и дефектологическая помощь при задержке психоречевого развития.</p>
+            <div class="price-row">
+              <span class="price">4500 руб.</span>
+              <span class="book-link" onclick="selectService('Комбинированное занятие при ЗПРР - 4500 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p18.png" alt="Комбинированное занятие при особенностях эмоционально-волевой сферы"></div>
+            <h4>Комбинированное занятие при особенностях эмоционально-волевой сферы</h4>
+            <p>Поддержка речи, поведения, внимания и включения в занятие.</p>
+            <div class="price-row">
+              <span class="price">4700 руб.</span>
+              <span class="book-link" onclick="selectService('Комбинированное занятие при особенностях эмоционально-волевой сферы - 4700 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p19.png" alt="Комбинированное занятие при гиперактивности, СДВГ"></div>
+            <h4>Комбинированное занятие при гиперактивности, СДВГ</h4>
+            <p>Коррекционная работа с учётом трудностей внимания и саморегуляции.</p>
+            <div class="price-row">
+              <span class="price">5700 руб.</span>
+              <span class="book-link" onclick="selectService('Комбинированное занятие при гиперактивности, СДВГ - 5700 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p20.png" alt="Комбинированное занятие при РДА, РАС и аутическом типе развития"></div>
+            <h4>Комбинированное занятие при РДА, РАС и аутическом типе развития</h4>
+            <p>Помощь при РАС, аутическом типе развития и атипичном аутизме.</p>
+            <div class="price-row">
+              <span class="price">6700 руб.</span>
+              <span class="book-link" onclick="selectService('Комбинированное занятие при РДА, РАС и аутическом типе развития - 6700 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p21.png" alt="Комбинированное занятие при ДЦП, синдроме Дауна, генетических синдромах"></div>
+            <h4>Комбинированное занятие при ДЦП, синдроме Дауна, генетических синдромах</h4>
+            <p>Индивидуальная коррекционная работа с учётом моторных и когнитивных особенностей.</p>
+            <div class="price-row">
+              <span class="price">5700 руб.</span>
+              <span class="book-link" onclick="selectService('Комбинированное занятие при ДЦП, синдроме Дауна, генетических синдромах - 5700 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p22.png" alt="Комбинированное занятие при УО"></div>
+            <h4>Комбинированное занятие при УО</h4>
+            <p>Логопедическая и дефектологическая поддержка при умственной отсталости.</p>
+            <div class="price-row">
+              <span class="price">5700 руб.</span>
+              <span class="book-link" onclick="selectService('Комбинированное занятие при УО - 5700 руб.')">Записаться →</span>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="service-group">
+        <h2>Взрослые, голос и дополнительные форматы</h2>
+        <div class="service-cards flat-service-cards">
+          <article class="service-card">
+            <div class="service-image"><img src="images/p24.png" alt="Афазия, дисфагия"></div>
+            <h4>Афазия, дисфагия</h4>
+            <p>Занятие 40-90 минут для взрослых после инсульта, черепно-мозговой травмы или других состояний, влияющих на речь и глотание.</p>
+            <div class="price-row">
+              <span class="price">От 5000 руб.</span>
+              <span class="book-link" onclick="selectService('Афазия, дисфагия - От 5000 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p25.png" alt="Постановка голоса, дикция и техника речи"></div>
+            <h4>Постановка голоса, дикция и техника речи</h4>
+            <p>Снятие зажимов, дыхательная и артикуляционная гимнастика, голосовые упражнения и работа над речью.</p>
+            <div class="price-row">
+              <span class="price">5000 руб.</span>
+              <span class="book-link" onclick="selectService('Постановка голоса, дикция и техника речи - 5000 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p26.png" alt="При нарушении функции ЛОР-органов"></div>
+            <h4>При нарушении функции ЛОР-органов</h4>
+            <p>Развитие нёбно-глоточного смыкания, коррекция гипотонии, дыхательная и артикуляционная гимнастика.</p>
+            <div class="price-row">
+              <span class="price">4000 руб.</span>
+              <span class="book-link" onclick="selectService('При нарушении функции ЛОР-органов - 4000 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p27.png" alt="Постановка и автоматизация звука"></div>
+            <h4>Постановка и автоматизация звука</h4>
+            <p>Постановка звука и закрепление правильного произношения в речи.</p>
+            <div class="price-row">
+              <span class="price">4000 руб.</span>
+              <span class="book-link" onclick="selectService('Постановка и автоматизация звука - 4000 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p23.png" alt="Логопедический массаж, 30 минут"></div>
+            <h4>Логопедический массаж, 30 минут</h4>
+            <p>Работа с тонусом, подвижностью и чувствительностью артикуляционного аппарата.</p>
+            <div class="price-row">
+              <span class="price">5000 руб.</span>
+              <span class="book-link" onclick="selectService('Логопедический массаж, 30 минут - 5000 руб.')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="images/p23.png" alt="Логопедический массаж курсом 10-15 сеансов"></div>
+            <h4>Логопедический массаж курсом 10-15 сеансов</h4>
+            <p>Курс занятий для последовательной работы с артикуляционным аппаратом.</p>
+            <div class="price-row">
+              <span class="price">6000 руб. / сеанс</span>
+              <span class="book-link" onclick="selectService('Логопедический массаж курсом 10-15 сеансов - 6000 руб. / сеанс')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image service-image-empty"><span>Услуга</span></div>
+            <h4>Общий детский массаж курсом 10-15 сеансов до 6 лет</h4>
+            <p>Курс общего массажа для детей до 6 лет.</p>
+            <div class="price-row">
+              <span class="price">6000 руб. / сеанс</span>
+              <span class="book-link" onclick="selectService('Общий детский массаж курсом 10-15 сеансов до 6 лет - 6000 руб. / сеанс')">Записаться →</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-image service-image-empty"><span>Услуга</span></div>
+            <h4>Онлайн-формат</h4>
+            <p>Дистанционная консультация или сопровождение, когда формат подходит под задачу.</p>
+            <div class="price-row">
+              <span class="price">4000 руб.</span>
+              <span class="book-link" onclick="selectService('Онлайн-формат - 4000 руб.')">Записаться →</span>
+            </div>
+          </article>
+        </div>
+      </section>
+    </section>
+
+  <section class="cta-section" id="cta">
+    <div class="cta-card">
+      <h2>Запишитесь на консультацию</h2>
+      <p>Оставьте заявку, и мы подберём удобное время для первой встречи, диагностики и определения дальнейшего плана занятий.</p>
+      <form class="cta-form" id="ctaForm" novalidate>
+        <input type="text" id="nameInput" placeholder="Ваше имя" autocomplete="name" required>
+        <input type="tel" id="phoneInput" placeholder="Телефон" autocomplete="tel" required>
+        <div class="service-picker" id="servicePicker">
+          <input type="text" id="serviceSearch" placeholder="Найти услугу" autocomplete="off" aria-label="Поиск услуги">
+          <input type="hidden" id="service" required>
+          <div class="service-dropdown" id="serviceDropdown">
+            <button type="button" class="service-option" data-value="Комплексная подробная диагностика развития - От 6000 руб.">Комплексная подробная диагностика развития <span>От 6000 руб.</span></button>
+            <button type="button" class="service-option" data-value="Индивидуальное занятие с детьми раннего возраста до 3 лет - 4400 руб.">Индивидуальное занятие с детьми раннего возраста до 3 лет <span>4400 руб.</span></button>
+            <button type="button" class="service-option" data-value="Индивидуальное занятие по подготовке к школе - 4400 руб.">Индивидуальное занятие по подготовке к школе <span>4400 руб.</span></button>
+            <button type="button" class="service-option" data-value="Разовое занятие логопеда-дефектолога - 4000 руб.">Разовое занятие логопеда-дефектолога <span>4000 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедическое занятие при мономорфной дислалии - 4500 руб.">Логопедическое занятие при мономорфной дислалии <span>4500 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедическое занятие при полиморфной дислалии - 4500 руб.">Логопедическое занятие при полиморфной дислалии <span>4500 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедическое занятие при ФФНР - 4500 руб.">Логопедическое занятие при ФФНР <span>4500 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедическое занятие при ринолалии - 4500 руб.">Логопедическое занятие при ринолалии <span>4500 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедическое занятие при темповой задержке речи, ЗРР - 5000 руб.">Логопедическое занятие при темповой задержке речи, ЗРР <span>5000 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедическое занятие при алалии - 4500 руб.">Логопедическое занятие при алалии <span>4500 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедическое занятие при ОНР I уровня - 4600 руб.">Логопедическое занятие при ОНР I уровня <span>4600 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедическое занятие при ОНР II уровня - 4500 руб.">Логопедическое занятие при ОНР II уровня <span>4500 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедическое занятие при ОНР III уровня - 4500 руб.">Логопедическое занятие при ОНР III уровня <span>4500 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедическое занятие при дисграфии, дислексии - 4600 руб.">Логопедическое занятие при дисграфии, дислексии <span>4600 руб.</span></button>
+            <button type="button" class="service-option" data-value="Занятие с дефектологом - 4600 руб.">Занятие с дефектологом <span>4600 руб.</span></button>
+            <button type="button" class="service-option" data-value="Комбинированное занятие при ЗПР - 4600 руб.">Комбинированное занятие при ЗПР <span>4600 руб.</span></button>
+            <button type="button" class="service-option" data-value="Комбинированное занятие при ЗПРР - 4500 руб.">Комбинированное занятие при ЗПРР <span>4500 руб.</span></button>
+            <button type="button" class="service-option" data-value="Комбинированное занятие при особенностях эмоционально-волевой сферы - 4700 руб.">Комбинированное занятие при особенностях эмоционально-волевой сферы <span>4700 руб.</span></button>
+            <button type="button" class="service-option" data-value="Комбинированное занятие при гиперактивности, СДВГ - 5700 руб.">Комбинированное занятие при гиперактивности, СДВГ <span>5700 руб.</span></button>
+            <button type="button" class="service-option" data-value="Комбинированное занятие при РДА, РАС и аутическом типе развития - 6700 руб.">Комбинированное занятие при РДА, РАС и аутическом типе развития <span>6700 руб.</span></button>
+            <button type="button" class="service-option" data-value="Комбинированное занятие при ДЦП, синдроме Дауна, генетических синдромах - 5700 руб.">Комбинированное занятие при ДЦП, синдроме Дауна, генетических синдромах <span>5700 руб.</span></button>
+            <button type="button" class="service-option" data-value="Комбинированное занятие при УО - 5700 руб.">Комбинированное занятие при УО <span>5700 руб.</span></button>
+            <button type="button" class="service-option" data-value="Афазия, дисфагия - От 5000 руб.">Афазия, дисфагия <span>От 5000 руб.</span></button>
+            <button type="button" class="service-option" data-value="Постановка голоса, дикция и техника речи - 5000 руб.">Постановка голоса, дикция и техника речи <span>5000 руб.</span></button>
+            <button type="button" class="service-option" data-value="При нарушении функции ЛОР-органов - 4000 руб.">При нарушении функции ЛОР-органов <span>4000 руб.</span></button>
+            <button type="button" class="service-option" data-value="Постановка и автоматизация звука - 4000 руб.">Постановка и автоматизация звука <span>4000 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедический массаж, 30 минут - 5000 руб.">Логопедический массаж, 30 минут <span>5000 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедический массаж курсом 10-15 сеансов - 6000 руб. / сеанс">Логопедический массаж курсом 10-15 сеансов <span>6000 руб. / сеанс</span></button>
+            <button type="button" class="service-option" data-value="Общий детский массаж курсом 10-15 сеансов до 6 лет - 6000 руб. / сеанс">Общий детский массаж курсом 10-15 сеансов до 6 лет <span>6000 руб. / сеанс</span></button>
+            <button type="button" class="service-option" data-value="Онлайн-формат - 4000 руб.">Онлайн-формат <span>4000 руб.</span></button>
+            <div class="service-empty" id="serviceEmpty">Ничего не найдено</div>
+          </div>
+        </div>
+        <button type="submit" class="btn-cta">Записаться</button>
+      </form>
+      <p class="cta-consent">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.</p>
+      <div class="form-message" id="formMessage"></div>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo">
+      <div class="logo-icon footer-logo-icon">А</div>
+      <div>
+        <div class="footer-name">Братикова Анна</div>
+        <div class="footer-sub">Коррекционный педагог, логопед, дефектолог, афазиолог</div>
+      </div>
+    </div>
+    <div class="footer-socials">
+      <a href="#" aria-label="Telegram">TG</a>
+      <a href="#" aria-label="WhatsApp">WA</a>
+      <a href="#" aria-label="ВКонтакте">VK</a>
+    </div>
+  </footer>
+
+  <script src="main.js?v=20260528-admin-auth"></script>
+</body>
+</html>

@@ -26,22 +26,15 @@ if (burger && navLinks) {
       document.body.style.overflow = '';
     });
   });
-}
 
-// Accordion
-document.querySelectorAll('.accordion-header').forEach(header => {
-  header.addEventListener('click', () => {
-    const item = header.closest('.accordion-item');
-    if (!item) return;
-
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
-
-    if (!isOpen) {
-      item.classList.add('open');
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900 && navLinks.classList.contains('open')) {
+      burger.classList.remove('open');
+      navLinks.classList.remove('open');
+      document.body.style.overflow = '';
     }
   });
-});
+}
 
 // Navbar shadow on scroll
 window.addEventListener('scroll', () => {
@@ -59,11 +52,17 @@ const formMsg = document.getElementById('formMessage');
 const nameInput = document.getElementById('nameInput');
 const phoneInput = document.getElementById('phoneInput');
 const serviceInput = document.getElementById('service');
+const websiteInput = document.getElementById('websiteInput');
+const formStartedAt = document.getElementById('formStartedAt');
 const servicePicker = document.getElementById('servicePicker');
 const serviceSearch = document.getElementById('serviceSearch');
 const serviceDropdown = document.getElementById('serviceDropdown');
 const serviceOptions = Array.from(document.querySelectorAll('.service-option'));
 const serviceEmpty = document.getElementById('serviceEmpty');
+
+if (formStartedAt) {
+  formStartedAt.value = String(Date.now());
+}
 
 function normalizeSearch(text) {
   return text.toLowerCase().replace(/\s+/g, ' ').trim();
@@ -153,6 +152,12 @@ if (ctaForm && formMsg && nameInput && phoneInput && serviceInput) {
       valid = false;
     }
 
+    const phoneDigits = phone.replace(/\D+/g, '');
+    if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+      phoneInput.classList.add('error');
+      valid = false;
+    }
+
     if (!service) {
       serviceSearch?.classList.add('error');
       servicePicker?.classList.add('error');
@@ -172,7 +177,13 @@ if (ctaForm && formMsg && nameInput && phoneInput && serviceInput) {
       const res = await fetch('backend/api.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, phone, service })
+        body: JSON.stringify({
+          name,
+          phone,
+          service,
+          website: websiteInput?.value || '',
+          form_started_at: Number(formStartedAt?.value || 0)
+        })
       });
 
       if (!res.ok) throw new Error('Server error');
@@ -184,6 +195,7 @@ if (ctaForm && formMsg && nameInput && phoneInput && serviceInput) {
         ctaForm.reset();
         serviceInput.value = '';
         if (serviceSearch) serviceSearch.value = '';
+        if (formStartedAt) formStartedAt.value = String(Date.now());
       } else {
         showMessage(data.message || 'Произошла ошибка. Попробуйте ещё раз.', 'error');
       }
@@ -210,7 +222,7 @@ function showMessage(text, type) {
 
 // Fade-in on scroll
 const fadeEls = document.querySelectorAll(
-  '.service-card, .content-block, .hero-photo-card'
+  '.service-card, .content-block'
 );
 
 const observer = new IntersectionObserver((entries) => {

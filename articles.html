@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Статьи - Братикова Анна</title>
+  <link rel="stylesheet" href="css/style.css?v=20260528-admin-auth">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a class="logo" href="index.html#home" aria-label="На главную">
+        <div class="logo-icon">А</div>
+        <div class="logo-text">
+          <div class="name">Братикова Анна</div>
+          <div class="sub">Логопед, дефектолог, афазиолог</div>
+        </div>
+      </a>
+
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="about.html" class="nav-link">О специалисте</a></li>
+        <li><a href="index.html#intro" class="nav-link">Знакомство</a></li>
+        <li><a href="index.html#process" class="nav-link">Занятия</a></li>
+        <li><a href="services.html" class="nav-link">Услуги</a></li>
+        <li><a href="articles.html" class="nav-link active">Статьи</a></li>
+        <li><a href="index.html#children" class="nav-link">Детям</a></li>
+        <li><a href="index.html#adults" class="nav-link">Взрослым</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <button class="btn-primary" onclick="scrollToSection('#articleRequest')">Предложить тему</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page-hero compact-hero">
+      <div class="section-label">Статьи</div>
+      <h1>Полезные материалы о речи, обучении и восстановлении</h1>
+      <p>Здесь будут короткие и понятные статьи для родителей и взрослых клиентов: без сложного языка, с практическими ориентирами и спокойными объяснениями.</p>
+    </section>
+
+    <section class="articles-section">
+      <div class="article-grid" id="articlesGrid">
+        <article class="article-card">
+          <span class="article-tag">Речь ребёнка</span>
+          <h2>Когда стоит обратиться к логопеду?</h2>
+          <p>Как отличить возрастную норму от ситуации, где лучше не ждать, и почему диагностика не всегда означает долгий курс занятий.</p>
+          <span class="article-status">Тема для первой публикации</span>
+        </article>
+
+        <article class="article-card">
+          <span class="article-tag">Подготовка к школе</span>
+          <h2>Какие речевые навыки важны перед школой?</h2>
+          <p>Про внимание, понимание инструкции, связную речь, фонематический слух и навыки, которые помогают ребёнку легче включиться в учёбу.</p>
+          <span class="article-status">Можно добавить позже</span>
+        </article>
+
+        <article class="article-card">
+          <span class="article-tag">Взрослым</span>
+          <h2>Можно ли улучшить дикцию во взрослом возрасте?</h2>
+          <p>Почему упражнения из интернета помогают не всегда и зачем сначала понимать, что именно мешает речи звучать свободно.</p>
+          <span class="article-status">Можно добавить позже</span>
+        </article>
+
+        <article class="article-card">
+          <span class="article-tag">Реабилитация</span>
+          <h2>Как строится восстановление речи после нарушения?</h2>
+          <p>О бережном темпе, регулярности, роли семьи и маленьких шагах, из которых постепенно складывается заметный результат.</p>
+          <span class="article-status">Можно добавить позже</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="article-request" id="articleRequest">
+      <div class="article-request-inner">
+        <div>
+          <div class="section-label">Развитие раздела</div>
+          <h2>Предложите тему для статьи</h2>
+          <p>Если есть вопрос о речи, обучении, диагностике или восстановлении, можно отправить его сюда. Я сохраню тему и смогу использовать её для будущих материалов.</p>
+        </div>
+        <form class="article-suggest-form" id="articleSuggestForm">
+          <input type="text" id="suggestWebsite" name="website" tabindex="-1" autocomplete="off" class="spam-field" aria-hidden="true">
+          <input type="hidden" id="suggestStartedAt" name="form_started_at">
+          <input type="text" id="suggestName" placeholder="Ваше имя">
+          <input type="text" id="suggestContact" placeholder="Телефон или мессенджер">
+          <input type="text" id="suggestTopic" placeholder="Тема статьи" required>
+          <textarea id="suggestComment" placeholder="Комментарий или вопрос"></textarea>
+          <button type="submit" class="btn-primary">Отправить тему</button>
+          <div class="form-message" id="suggestMessage"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo">
+      <div class="logo-icon footer-logo-icon">А</div>
+      <div>
+        <div class="footer-name">Братикова Анна</div>
+        <div class="footer-sub">Коррекционный педагог, логопед, дефектолог, афазиолог</div>
+      </div>
+    </div>
+    <div class="footer-socials">
+      <a href="#" aria-label="Telegram">TG</a>
+      <a href="#" aria-label="WhatsApp">WA</a>
+      <a href="#" aria-label="ВКонтакте">VK</a>
+    </div>
+  </footer>
+
+  <script>
+    const articlesGrid = document.getElementById('articlesGrid');
+    const fallbackArticlesHtml = articlesGrid.innerHTML;
+
+    function escapeHtml(value) {
+      return String(value ?? '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+    }
+
+    function renderArticles(articles) {
+      if (!Array.isArray(articles) || articles.length === 0) {
+        articlesGrid.innerHTML = fallbackArticlesHtml;
+        return;
+      }
+
+      articlesGrid.innerHTML = articles.map(article => `
+        <article class="article-card">
+          <span class="article-tag">${escapeHtml(article.tag || 'Статья')}</span>
+          <h2>${escapeHtml(article.title || '')}</h2>
+          <p>${escapeHtml(article.summary || '')}</p>
+          <span class="article-status">${escapeHtml(article.status || 'Опубликовано')}</span>
+        </article>
+      `).join('');
+    }
+
+    async function loadArticles() {
+      try {
+        const res = await fetch('backend/api.php?action=articles');
+        if (!res.ok) throw new Error('Не удалось загрузить статьи');
+        const data = await res.json();
+        renderArticles(data?.data?.articles || []);
+      } catch (error) {
+        articlesGrid.innerHTML = fallbackArticlesHtml;
+      }
+    }
+
+    loadArticles();
+
+    const articleSuggestForm = document.getElementById('articleSuggestForm');
+    const suggestMessage = document.getElementById('suggestMessage');
+    const suggestStartedAt = document.getElementById('suggestStartedAt');
+
+    if (suggestStartedAt) {
+      suggestStartedAt.value = String(Date.now());
+    }
+
+    articleSuggestForm?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const payload = {
+        name: document.getElementById('suggestName').value.trim(),
+        contact: document.getElementById('suggestContact').value.trim(),
+        topic: document.getElementById('suggestTopic').value.trim(),
+        comment: document.getElementById('suggestComment').value.trim(),
+        website: document.getElementById('suggestWebsite').value.trim(),
+        form_started_at: Number(document.getElementById('suggestStartedAt').value || 0)
+      };
+
+      if (!payload.topic) {
+        showSuggestMessage('Напишите тему статьи.', 'error');
+        return;
+      }
+
+      try {
+        const res = await fetch('backend/api.php?action=suggest_article', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (!res.ok || !data.success) throw new Error(data.message || 'Не удалось отправить тему');
+        articleSuggestForm.reset();
+        if (suggestStartedAt) suggestStartedAt.value = String(Date.now());
+        showSuggestMessage('Спасибо, тема отправлена.', 'success');
+      } catch (error) {
+        showSuggestMessage(error.message || 'Ошибка отправки. Попробуйте позже.', 'error');
+      }
+    });
+
+    function showSuggestMessage(text, type) {
+      if (!suggestMessage) return;
+      suggestMessage.textContent = text;
+      suggestMessage.className = 'form-message ' + type;
+    }
+  </script>
+  <script src="main.js?v=20260528-admin-auth"></script>
+</body>
+</html>

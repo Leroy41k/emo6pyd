@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Братикова Анна - коррекционный педагог, логопед, дефектолог</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20260528-admin-auth">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <nav id="navbar">
     <div class="nav-inner">
-      <a class="logo" href="#home" aria-label="На главную">
+      <a class="logo" href="index.html#home" aria-label="На главную">
         <div class="logo-icon">А</div>
         <div class="logo-text">
           <div class="name">Братикова Анна</div>
@@ -24,12 +24,13 @@
       </button>
 
       <ul class="nav-links" id="navLinks">
-        <li><a href="#about" class="nav-link">О специалисте</a></li>
-        <li><a href="#intro" class="nav-link">Знакомство</a></li>
-        <li><a href="#process" class="nav-link">Занятия</a></li>
-        <li><a href="#services" class="nav-link">Услуги</a></li>
-        <li><a href="#children" class="nav-link">Детям</a></li>
-        <li><a href="#adults" class="nav-link">Взрослым</a></li>
+        <li><a href="about.html" class="nav-link">О специалисте</a></li>
+        <li><a href="index.html#intro" class="nav-link">Знакомство</a></li>
+        <li><a href="index.html#process" class="nav-link">Занятия</a></li>
+        <li><a href="services.html" class="nav-link">Услуги</a></li>
+        <li><a href="articles.html" class="nav-link">Статьи</a></li>
+        <li><a href="index.html#children" class="nav-link">Детям</a></li>
+        <li><a href="index.html#adults" class="nav-link">Взрослым</a></li>
       </ul>
 
       <div class="nav-right">
@@ -40,18 +41,25 @@
 
   <section class="hero" id="home">
     <div class="hero-content">
-      <div class="hero-badge">Онлайн и очные консультации</div>
-      <h1>Коррекционный педагог, логопед, дефектолог, афазиолог, заиколог</h1>
-      <p>Братикова Анна. Комплексный подход и бережное отношение - залог быстрых и стойких результатов.</p>
-      <div class="hero-btns">
-        <button class="btn-primary" onclick="scrollToSection('#cta')">Записаться на консультацию</button>
-        <button class="btn-outline" onclick="scrollToSection('#intro')">Как проходит знакомство</button>
+      <h1>Коррекционный педагог, логопед, дефектолог, афазиолог</h1>
+      <p>Братикова Анна. Помогаю детям и взрослым восстанавливать, развивать и укреплять речь через диагностику, понятный план занятий и бережную работу.</p>
+      <div class="hero-facts" aria-label="Ключевые преимущества">
+        <div class="hero-fact">
+          <strong>12 лет</strong>
+          <span>практического опыта</span>
+        </div>
+        <div class="hero-fact">
+          <strong>дети и взрослые</strong>
+          <span>индивидуальный маршрут</span>
+        </div>
+        <div class="hero-fact">
+          <strong>диагностика</strong>
+          <span>и понятный план занятий</span>
+        </div>
       </div>
-    </div>
-    <div class="hero-image-wrap">
-      <div class="hero-image-card hero-photo-card">
-        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1000&q=80" alt="Занятие с логопедом">
-        <div class="stat-pill">Успехи уже на первом занятии</div>
+      <div class="hero-btns">
+        <a class="btn-primary link-button" href="about.html">О специалисте</a>
+        <a class="btn-outline link-button" href="services.html">Услуги</a>
       </div>
     </div>
   </section>
@@ -61,32 +69,38 @@
     <div class="about-grid">
       <div class="about-photo"></div>
       <div class="about-content">
+        <div class="specialist-metric">
+          <span class="metric-number">12</span>
+          <span class="metric-text">лет я помогаю детям и взрослым справляться с речевыми и учебными трудностями</span>
+        </div>
         <h2 class="about-title">Братикова Анна</h2>
-        <p class="tagline">Коррекционный педагог, логопед, дефектолог, афазиолог, заиколог. Комплексный подход и бережное отношение помогают прийти к быстрым и стойким результатам.</p>
+        <p class="specialist-roles">Коррекционный педагог, логопед, дефектолог, афазиолог</p>
+        <p class="tagline">Я не обещаю волшебную таблетку, но умею внимательно разбираться в причине трудностей и подбирать работу, которая подходит именно вашему случаю. Моя задача - чтобы вы понимали, что происходит, зачем мы делаем каждый шаг и к какому результату идем.</p>
+        <div class="approach-badge">Комплексный подход</div>
         <ul class="cred-list">
           <li>
             <div class="check-circle">✓</div>
             <div>
-              <div class="cred-title">Индивидуальный подход</div>
-              <div class="cred-sub">План занятий составляется после диагностики и беседы с близкими.</div>
+              <div class="cred-title">Я начинаю с диагностики</div>
+              <div class="cred-sub">Смотрю не только речь, но и внимание, моторику, понимание, состояние, привычки общения и запрос семьи.</div>
             </div>
           </li>
           <li>
             <div class="check-circle">✓</div>
             <div>
-              <div class="cred-title">Работа с детьми и взрослыми</div>
-              <div class="cred-sub">Помощь при нарушениях звукопроизношения, афазии, дислексии и дисграфии.</div>
+              <div class="cred-title">Я объясняю без сложных терминов</div>
+              <div class="cred-sub">После встречи вы уходите не с тревогой, а с понятным планом: что делать сейчас, что подключить позже и чего ждать от занятий.</div>
             </div>
           </li>
           <li>
             <div class="check-circle">✓</div>
             <div>
-              <div class="cred-title">Очные и дистанционные консультации</div>
-              <div class="cred-sub">Гибкий график, спокойная атмосфера и понятные рекомендации после первой встречи.</div>
+              <div class="cred-title">Я веду к результату бережно</div>
+              <div class="cred-sub">Работаю спокойно, последовательно и на связи с семьей, потому что устойчивые изменения появляются там, где есть доверие и регулярность.</div>
             </div>
           </li>
         </ul>
-        <button class="verified-btn" type="button" onclick="scrollToSection('#cta')">Записаться на консультацию</button>
+        <a class="verified-btn link-button" href="about.html">Подробнее</a>
       </div>
     </div>
   </section>
@@ -94,419 +108,89 @@
   <section class="text-section" id="intro">
     <div class="section-label">Знакомство</div>
     <h2 class="section-title">Первая встреча: для чего нужна и как проходит?</h2>
-    <p class="section-desc">Первое взаимодействие: цели и процесс.</p>
+    <p class="section-desc">На первой консультации я не тороплю события: сначала важно спокойно разобраться в ситуации и понять, какой путь будет полезен именно вам.</p>
 
-    <div class="content-block">
-      <p>Первая консультация - это фундамент для выстраивания доверительных отношений. Знакомство помогает рассеять волнение перед новым человеком и создать атмосферу открытости, что является ключом к получению точной информации о состоянии.</p>
-      <p>На этапе диагностики проводится всесторонний анализ речевых навыков: оценивается артикуляция, богатство словаря, логичность высказываний, звуковой состав слов и уровень понимания речи. Также уделяется внимание общим двигательным умениям, крупной и мелкой моторике, физиологическим особенностям, работа над которыми напрямую влияет на успех занятий.</p>
-      <p>Сбор информации и формулирование целей: беседа с близкими позволяет глубоко понять индивидуальные особенности развития ребёнка или взрослого, выявить основные трудности и определить ожидания от терапевтического процесса.</p>
-      <p>Оценка когнитивных функций: в процессе общения анализируются неречевые аспекты, такие как внимание, память, мыслительные процессы и способность к обучению, поскольку они оказывают прямое воздействие на эффективность коррекционной работы.</p>
-      <p>Определение вектора развития: на основании всей собранной информации определяются дальнейшие шаги, формируется персонализированный план занятий и, при необходимости, даются рекомендации по обращению к другим профильным специалистам: неврологу, психологу, ЛОР-врачу и т.д.</p>
-      <p class="lead-text">Это ваш уникальный шанс начать путь к значительным улучшениям.</p>
+    <div class="section-visual">
+      <img src="images/p01.png" alt="Комплексная диагностика речи и развития">
+      <div>
+        <span>Диагностика</span>
+        <p>Сначала я собираю картину целиком: речь, внимание, понимание, моторику и реальные трудности в жизни.</p>
+      </div>
+    </div>
+
+    <div class="content-block info-grid">
+      <article class="info-item">
+        <span class="info-icon">01</span>
+        <h3>Спокойное знакомство</h3>
+        <p>Я слушаю ваш запрос, задаю уточняющие вопросы и смотрю, как человеку комфортнее включаться в работу.</p>
+      </article>
+      <article class="info-item">
+        <span class="info-icon">02</span>
+        <h3>Диагностика без шаблона</h3>
+        <p>Оцениваю речь, звукопроизношение, словарь, понимание, артикуляцию, а при необходимости моторику, внимание, память и обучаемость.</p>
+      </article>
+      <article class="info-item">
+        <span class="info-icon">03</span>
+        <h3>Реальные цели</h3>
+        <p>Обсуждаю, где трудности заметны сильнее всего: дома, в учебе, на работе или в общении. Так занятия получают понятный смысл.</p>
+      </article>
+      <article class="info-item info-item-wide">
+        <span class="info-icon">04</span>
+        <h3>План без лишней тревоги</h3>
+        <p>После консультации я объясняю, что вижу, какие шаги предлагаю и к каким специалистам стоит обратиться дополнительно, если это может помочь.</p>
+      </article>
+      <p class="lead-text">Главная задача первой встречи - понять причину трудностей и выбрать путь, который даст результат без лишней тревоги.</p>
     </div>
   </section>
 
   <section class="process" id="process">
     <div class="section-label">Как проходят занятия</div>
     <h2 class="section-title">От первой встречи до устойчивого результата</h2>
-    <p class="section-desc">Каждое занятие строится вокруг состояния, возраста и задач конкретного человека.</p>
+    <p class="section-desc">Я выстраиваю работу постепенно: от диагностики и доверия к регулярной практике, закреплению навыков и понятным изменениям в жизни.</p>
     <div class="process-steps">
       <div class="process-step">
         <div class="step-icon-wrap s1">1</div>
         <div class="num">1. Знакомство</div>
-        <p>Снимаем волнение, обсуждаем запрос, собираем важную информацию о развитии и текущих трудностях.</p>
+        <p>Обсуждаем запрос, историю трудностей и то, что особенно важно изменить сейчас.</p>
       </div>
       <div class="process-step">
         <div class="step-icon-wrap s2">2</div>
         <div class="num">2. Диагностика</div>
-        <p>Оцениваем речь, артикуляцию, понимание, моторику, внимание, память и обучаемость.</p>
+        <p>Я смотрю речь, артикуляцию, понимание, моторику, внимание и обучаемость.</p>
       </div>
       <div class="process-step">
         <div class="step-icon-wrap s3">3</div>
         <div class="num">3. План занятий</div>
-        <p>Формируем персональную программу и при необходимости рекомендуем смежных специалистов.</p>
+        <p>Подбираю программу занятий и объясняю, почему именно такие шаги нужны.</p>
       </div>
       <div class="process-step">
         <div class="step-icon-wrap s4">4</div>
         <div class="num">4. Коррекция</div>
-        <p>Работаем регулярно, закрепляем навыки и отслеживаем первые изменения уже с первых встреч.</p>
+        <p>Закрепляем новые навыки и отслеживаем, как они переходят в обычную жизнь.</p>
       </div>
     </div>
   </section>
 
-  <section class="text-section alt" id="consultation">
-    <div class="section-label">Консультация учителя-логопеда</div>
-    <h2 class="section-title">Не откладывайте заботу о развитии речи</h2>
+  <section class="text-section alt immersive-section" id="consultation">
+    <div class="section-label">Консультация</div>
+    <h2 class="section-title">Комплексная диагностика и план занятий</h2>
 
-    <div class="content-block two-column">
-      <p>Не откладывайте заботу о развитии речи вашего ребёнка на потом. Каждый этап развития - это уникальная возможность заложить прочный фундамент для будущих успехов. На занятиях не просто исправляются недостатки, они раскрывают весь потенциал вашего малыша, помогая ему уверенно общаться с миром.</p>
-      <p>Представьте, как ваш ребёнок с лёгкостью выражает свои мысли, делится впечатлениями и заводит новых друзей - всё это станет реальностью с квалифицированной помощью.</p>
-      <p>Я очень ценю ваше время. Поэтому предлагаю гибкий график приёма, индивидуальный подход к каждому ребёнку и максимально комфортные условия для занятий. Никакой спешки, только внимательное и чуткое отношение к потребностям вашего малыша.</p>
-      <p>Используются проверенные временем и современные методики, игровые техники, чтобы сделать процесс обучения увлекательным и эффективным. Забудьте о стрессе и сомнениях - доверьте нам самое дорогое.</p>
-    </div>
-  </section>
-
-  <section class="services" id="services">
-    <div class="section-label">Направления работы</div>
-    <h2 class="section-title">Как я могу вам помочь</h2>
-    <p class="section-desc">Цены указаны по прайсу. Для занятий из детского блока стоимость относится к курсу от 7 занятий, длительность одного занятия 45-60 минут.</p>
-
-    <div class="accordion">
-      <div class="accordion-item open" data-acc="acc1">
-        <div class="accordion-header">
-          <div class="accordion-icon-wrap">01</div>
-          <div class="title-wrap">
-            <div class="main">Диагностика, ранний возраст и подготовка</div>
-            <div class="sub">Оценка развития, занятия до 3 лет, подготовка к школе</div>
-          </div>
-          <div class="accordion-chevron" aria-hidden="true"></div>
-        </div>
-        <div class="accordion-body">
-          <div class="service-cards">
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p01.png" alt="Комплексная диагностика">
-              </div>
-              <h4>Комплексная подробная диагностика развития</h4>
-              <p>Оценка познавательного, речевого и моторного развития с характеристикой для ребёнка или взрослого.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Комплексная подробная диагностика развития - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p02.png" alt="Ранний возраст">
-              </div>
-              <h4>Индивидуальное занятие с детьми до 3 лет</h4>
-              <p>Занятие для детей раннего возраста при отсутствии нарушений.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Индивидуальное занятие с детьми до 3 лет - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p03.png" alt="Подготовка к школе">
-              </div>
-              <h4>Индивидуальное занятие по подготовке к школе</h4>
-              <p>Всесторонняя подготовка дошкольников к обучению при отсутствии нарушений.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Индивидуальное занятие по подготовке к школе - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p04.png" alt="Разовое занятие">
-              </div>
-              <h4>Разовое занятие логопеда-дефектолога</h4>
-              <p>Индивидуальное занятие при разовой записи или курсе менее 7 занятий в месяц.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Разовое занятие логопеда-дефектолога - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="content-block consultation-panel">
+      <div class="consultation-copy">
+        <p>Консультация помогает понять, с чем связаны речевые или учебные трудности, какие задачи сейчас главные и какой формат помощи подойдет лучше всего.</p>
+        <p>Я провожу комплексную диагностику, объясняю результаты понятным языком и составляю план занятий. В нем видно, над чем работаем сначала, что подключаем позже и как семья может поддерживать процесс дома.</p>
       </div>
-
-      <div class="accordion-item" data-acc="acc2">
-        <div class="accordion-header">
-          <div class="accordion-icon-wrap">2+</div>
-          <div class="title-wrap">
-            <div class="main">Детская логопедия</div>
-            <div class="sub">Звукопроизношение, ЗРР, ОНР, чтение и письмо</div>
-          </div>
-          <div class="accordion-chevron" aria-hidden="true"></div>
+      <div class="consultation-summary">
+        <div class="consultation-price">
+          <span>Стоимость</span>
+          <strong>от 4500 ₽</strong>
+          <small>в зависимости от задач и объема диагностики</small>
         </div>
-        <div class="accordion-body">
-          <div class="service-cards">
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p05.png" alt="Мономорфная дислалия">
-              </div>
-              <h4>Логопедическое занятие при мономорфной дислалии</h4>
-              <p>Коррекция одного нарушенного звука или одной группы звуков.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Логопедическое занятие при мономорфной дислалии - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p06.png" alt="Полиморфная дислалия">
-              </div>
-              <h4>Логопедическое занятие при полиморфной дислалии</h4>
-              <p>Работа с несколькими нарушенными звуками или группами звуков.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Логопедическое занятие при полиморфной дислалии - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p07.png" alt="ФФНР">
-              </div>
-              <h4>Логопедическое занятие при ФФНР</h4>
-              <p>Коррекция фонетико-фонематического недоразвития речи.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Логопедическое занятие при ФФНР - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p08.png" alt="Ринолалия">
-              </div>
-              <h4>Логопедическое занятие при ринолалии</h4>
-              <p>Работа с особенностями голоса, произношения и резонанса.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Логопедическое занятие при ринолалии - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p09.png" alt="ЗРР">
-              </div>
-              <h4>Занятие при темповой задержке речи, ЗРР</h4>
-              <p>Запуск и развитие речи при задержке речевого развития.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Занятие при темповой задержке речи, ЗРР - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p10.png" alt="Алалия">
-              </div>
-              <h4>Логопедическое занятие при алалии</h4>
-              <p>Системная работа над пониманием, запуском и развитием речи.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Логопедическое занятие при алалии - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p11.png" alt="ОНР I уровня">
-              </div>
-              <h4>Логопедическое занятие при ОНР I уровня</h4>
-              <p>Развитие речевой системы при общем недоразвитии речи I уровня.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Логопедическое занятие при ОНР I уровня - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p12.png" alt="ОНР II уровня">
-              </div>
-              <h4>Логопедическое занятие при ОНР II уровня</h4>
-              <p>Коррекционная работа при общем недоразвитии речи II уровня.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Логопедическое занятие при ОНР II уровня - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p13.png" alt="ОНР III уровня">
-              </div>
-              <h4>Логопедическое занятие при ОНР III уровня</h4>
-              <p>Развитие связной речи, словаря, грамматики и звукопроизношения.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Логопедическое занятие при ОНР III уровня - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p14.png" alt="Дисграфия и дислексия">
-              </div>
-              <h4>Логопедическое занятие при дисграфии, дислексии</h4>
-              <p>Коррекция трудностей письма и чтения.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Логопедическое занятие при дисграфии, дислексии - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion-item" data-acc="acc3">
-        <div class="accordion-header">
-          <div class="accordion-icon-wrap">03</div>
-          <div class="title-wrap">
-            <div class="main">Дефектолог и комплексные занятия</div>
-            <div class="sub">ЗПР, ЗПРР, РАС, СДВГ, ДЦП, особенности развития</div>
-          </div>
-          <div class="accordion-chevron" aria-hidden="true"></div>
-        </div>
-        <div class="accordion-body">
-          <div class="service-cards">
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p15.png" alt="Дефектолог">
-              </div>
-              <h4>Занятие с дефектологом</h4>
-              <p>Развитие познавательных функций, учебных навыков и базовых предпосылок обучения.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Занятие с дефектологом - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p16.png" alt="ЗПР">
-              </div>
-              <h4>Комбинированное занятие при ЗПР</h4>
-              <p>Формат логопед + дефектолог для детей с задержкой психического развития.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Комбинированное занятие при ЗПР - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p17.png" alt="ЗПРР">
-              </div>
-              <h4>Комбинированное занятие при ЗПРР</h4>
-              <p>Логопедическая и дефектологическая помощь при задержке психоречевого развития.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Комбинированное занятие при ЗПРР - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p18.png" alt="Эмоционально-волевая сфера">
-              </div>
-              <h4>Комбинированное занятие при особенностях эмоционально-волевой сферы</h4>
-              <p>Поддержка речи, поведения, внимания и включения в занятие.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Комбинированное занятие при особенностях эмоционально-волевой сферы - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p19.png" alt="СДВГ">
-              </div>
-              <h4>Комбинированное занятие при гиперактивности, СДВГ</h4>
-              <p>Коррекционная работа с учётом трудностей внимания и саморегуляции.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Комбинированное занятие при гиперактивности, СДВГ - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p20.png" alt="РАС">
-              </div>
-              <h4>Комбинированное занятие при РДА, РАС и аутическом типе развития</h4>
-              <p>Помощь при РДА, РАС, аутическом типе развития и атипичном аутизме.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Комбинированное занятие при РДА, РАС и аутическом типе развития - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p21.png" alt="ДЦП и синдромы">
-              </div>
-              <h4>Комбинированное занятие при ДЦП, синдроме Дауна, генетических синдромах</h4>
-              <p>Индивидуальная коррекционная работа с учётом моторных и когнитивных особенностей.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Комбинированное занятие при ДЦП, синдроме Дауна, генетических синдромах - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p22.png" alt="УО">
-              </div>
-              <h4>Комбинированное занятие при УО</h4>
-              <p>Логопедическая и дефектологическая поддержка при умственной отсталости.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Комбинированное занятие при УО - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p23.png" alt="Логопедический массаж">
-              </div>
-              <h4>Логопедический массаж, 30 минут</h4>
-              <p>Работа с тонусом, подвижностью и чувствительностью артикуляционного аппарата.</p>
-              <div class="price-row">
-                <span class="price">От 4500 руб.</span>
-                <span class="book-link" onclick="selectService('Логопедический массаж, 30 минут - От 4500 руб.')">Записаться →</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion-item" data-acc="acc4">
-        <div class="accordion-header">
-          <div class="accordion-icon-wrap">18+</div>
-          <div class="title-wrap">
-            <div class="main">Взрослые, голос и ЛОР-направление</div>
-            <div class="sub">Афазия, дисфагия, дикция, голос, постановка звука</div>
-          </div>
-          <div class="accordion-chevron" aria-hidden="true"></div>
-        </div>
-        <div class="accordion-body">
-          <div class="service-cards">
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p24.png" alt="Афазия и дисфагия">
-              </div>
-              <h4>Афазия, дисфагия</h4>
-              <p>Занятие длительностью от 40 до 90 минут для взрослых после инсульта или черепно-мозговой травмы.</p>
-              <div class="price-row">
-                <span class="price">От 4500 руб.</span>
-                <span class="book-link" onclick="selectService('Афазия, дисфагия - От 4500 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p25.png" alt="Постановка голоса">
-              </div>
-              <h4>Постановка голоса, дикция и техника речи</h4>
-              <p>Снятие зажимов, логопедический массаж, дыхательная и артикуляционная гимнастика, голосовые упражнения.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('Постановка голоса, дикция и техника речи - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p26.png" alt="ЛОР-направление">
-              </div>
-              <h4>При нарушении функции ЛОР-органов</h4>
-              <p>Развитие нёбно-глоточного смыкания, коррекция гипотонии, дыхательная гимнастика, артикуляционная гимнастика, голосовые резонаторы.</p>
-              <div class="price-row">
-                <span class="price">От 5000 руб.</span>
-                <span class="book-link" onclick="selectService('При нарушении функции ЛОР-органов - От 5000 руб.')">Записаться →</span>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="service-image">
-                <img src="images/p27.png" alt="Постановка звука">
-              </div>
-              <h4>Постановка и автоматизация звука</h4>
-              <p>Постановка звука и закрепление правильного произношения в речи.</p>
-              <div class="price-row">
-                <span class="price">От 4500 руб.</span>
-                <span class="book-link" onclick="selectService('Постановка и автоматизация звука - От 4500 руб.')">Записаться →</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ul class="consultation-points">
+          <li>подходит детям и взрослым</li>
+          <li>разбор причины трудностей</li>
+          <li>понятный план дальнейших занятий</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -515,26 +199,73 @@
     <div class="section-label">Занятия логопеда с детьми</div>
     <h2 class="section-title">Когда формируется правильное произношение</h2>
 
-    <div class="content-block">
-      <p>К 4,5-5 годам маленькие исследователи мира должны полностью освоить звуки речи. Залогом чёткой артикуляции является тонкий слух, ведь именно он помогает совершенствовать произношение.</p>
-      <p>Уже с двух лет кроха учится различать звуки и с энтузиазмом их имитировать. А в 3-4 года малыш осознаёт разницу между своим и взрослым произношением, что становится мощным стимулом к самокоррекции.</p>
-      <p>Развитие речевого аппарата - это поэтапный процесс. Даже при отличном слухе овладение всеми звуками требует времени. Сложные шипящие (Ш, Ж, Ч, Щ) и свистящие (С, З, Ц) покоряются в 3-4 года. А самыми последними сдаются в бою звуки Р и твёрдый Л. До этого момента дети, как правило, прибегают к заменам, используя более простые аналоги: например, «лакета» вместо «ракета», «тяйник» вместо «чайник», «сапка» вместо «шапка».</p>
-      <p>Но не волнуйтесь. По мере взросления и совершенствования артикуляции эти заменители естественным образом трансформируются в правильные звуки. Поэтому до 4-4,5 лет некоторые несовершенства в произношении - абсолютная норма, которая не должна вызывать излишней тревоги у родителей и даже у некоторых специалистов.</p>
-      <p>Когда же стоит бить тревогу? Любые нарушения звукопроизношения после 5 лет - это сигнал к действию. К этому возрасту ребёнок не только должен идеально различать все звуки речи, но и обладать достаточной ловкостью речевого аппарата для воспроизведения самых замысловатых звуков.</p>
-      <p>Если к 5 годам проблемы сохраняются, это указывает на наличие определённых препятствий для адекватной работы речевых анализаторов. Обратите внимание: даже в более раннем возрасте могут проявиться дефекты, выходящие за рамки возрастной нормы. Вместо обычной замены звука ребёнок может искажать его, произнося совершенно неожиданным образом: например, горловое «Р», межзубное «С».</p>
-      <p class="lead-text">Такие стойкие и искажённые дефекты, не связанные с подражанием, не исчезнут сами по себе. Не ждите чуда - обращайтесь за профессиональной помощью как можно скорее, чтобы ваш ребёнок мог заговорить чисто и уверенно.</p>
+    <div class="section-visual reverse">
+      <img src="images/p05.png" alt="Логопедические занятия с детьми">
+      <div>
+        <span>Детская речь</span>
+        <p>Занятия помогают ребёнку говорить понятнее, увереннее общаться и легче осваивать навыки, которые пригодятся в учебе.</p>
+      </div>
+    </div>
+
+    <div class="content-block info-grid">
+      <article class="info-item">
+        <span class="info-icon">A</span>
+        <h3>Возрастная норма</h3>
+        <p>К 4,5-5 годам ребенок обычно осваивает основные звуки речи. До этого отдельные замены могут быть нормой: речевой аппарат еще созревает.</p>
+      </article>
+      <article class="info-item">
+        <span class="info-icon">B</span>
+        <h3>Важно качество ошибки</h3>
+        <p>Если звук не просто заменяется, а искажается, звучит межзубно, горлом или непривычно, лучше не ждать, пока это закрепится.</p>
+      </article>
+      <article class="info-item">
+        <span class="info-icon">C</span>
+        <h3>После пяти лет</h3>
+        <p>Стойкие нарушения звукопроизношения лучше разбирать со специалистом: ребенку сложнее самостоятельно перестроить привычный способ говорить.</p>
+      </article>
+      <article class="info-item info-item-wide">
+        <span class="info-icon">D</span>
+        <h3>Что делаем на занятиях</h3>
+        <p>Развиваем слуховое различение, артикуляцию, дыхание, словарь, связную речь и навыки, которые важны для чтения и письма.</p>
+      </article>
+      <p class="lead-text">Если вы сомневаетесь, нужна ли помощь, лучше прийти на диагностику: иногда достаточно рекомендаций, а иногда раннее начало занятий экономит месяцы переживаний.</p>
     </div>
   </section>
 
   <section class="services" id="adults">
     <div class="section-label">Логопед для взрослых</div>
     <h2 class="section-title">Речь можно улучшать в любом возрасте</h2>
-    <p class="section-desc">Неважно, сколько вам лет - 17, 45 или 60+. Каждый возраст - это прекрасная возможность для преображения вашей речи.</p>
+    <p class="section-desc">Речь можно тренировать, восстанавливать и делать увереннее в любом возрасте. Важно не стесняться запроса и начать с понятной диагностики.</p>
 
-    <div class="content-block">
-      <p>Признаться в необходимости обратиться к логопеду во взрослом возрасте - это действительно вызов. Часто перед этим шагом люди тратят недели и месяцы, пытаясь самостоятельно скорректировать нарушения речи, занимаясь скороговорками и упражнениями в надежде улучшить произношение. Возможно, вы пробовали обращаться к нетрадиционным методам или использовали компьютерные программы, но дефекты речи остались.</p>
-      <p>Эти истории, к сожалению, не редкость, и мы часто слышим их на первой встрече. Откуда же взялось это убеждение, что проблемы с речью - это исключительно детская тема, а во взрослой жизни с ними уже не справиться? Весь наш многолетний опыт доказывает обратное.</p>
-      <p>Мы гордимся тем, что помогли тысячам людей преодолеть трудности с произношением и афазией. Наши клиенты - иностранцы, осваивающие русский язык, и мы успешно работаем над устранением диалектов и акцентов.</p>
+    <div class="section-visual">
+      <img src="images/p24.png" alt="Работа со взрослой речью и восстановлением">
+      <div>
+        <span>Взрослым</span>
+        <p>Работа строится вокруг конкретной цели: говорить свободнее, восстановить речь, улучшить дикцию или увереннее звучать в общении.</p>
+      </div>
+    </div>
+
+    <div class="content-block info-grid compact-info-grid">
+      <article class="info-item">
+        <span class="info-icon">1</span>
+        <h3>Не только скороговорки</h3>
+        <p>Если самостоятельные упражнения не дают результата, важно найти причину и выстроить точный план.</p>
+      </article>
+      <article class="info-item">
+        <span class="info-icon">2</span>
+        <h3>Речь, голос, восстановление</h3>
+        <p>Работаю с произношением, дикцией, голосом, чтением и письмом, а также с восстановлением речи при афазии и дисфагии.</p>
+      </article>
+      <article class="info-item info-item-wide">
+        <span class="info-icon">3</span>
+        <h3>Понятный маршрут</h3>
+        <p>На первой встрече мы определяем, что мешает речи звучать свободно, какие навыки тренируем и как отслеживать результат.</p>
+      </article>
+      <article class="info-item">
+        <span class="info-icon">4</span>
+        <h3>Работа в вашем темпе</h3>
+        <p>Занятия подстраиваются под состояние, цель и нагрузку человека, чтобы движение вперед было устойчивым и посильным.</p>
+      </article>
     </div>
 
     <div class="service-list">
@@ -572,41 +303,46 @@
   <section class="cta-section" id="cta">
     <div class="cta-card">
       <h2>Запишитесь на консультацию</h2>
-      <p>Оставьте заявку, и мы подберём удобное время для первой встречи, диагностики и определения дальнейшего плана занятий.</p>
+      <p>Оставьте заявку, и я свяжусь с вами, чтобы уточнить запрос и подобрать удобное время для первой встречи.</p>
       <form class="cta-form" id="ctaForm" novalidate>
+        <input type="text" id="websiteInput" name="website" tabindex="-1" autocomplete="off" class="spam-field" aria-hidden="true">
+        <input type="hidden" id="formStartedAt" name="form_started_at">
         <input type="text" id="nameInput" placeholder="Ваше имя" autocomplete="name" required>
         <input type="tel" id="phoneInput" placeholder="Телефон" autocomplete="tel" required>
         <div class="service-picker" id="servicePicker">
           <input type="text" id="serviceSearch" placeholder="Найти услугу" autocomplete="off" aria-label="Поиск услуги">
           <input type="hidden" id="service" required>
           <div class="service-dropdown" id="serviceDropdown">
-            <button type="button" class="service-option" data-value="Комплексная подробная диагностика развития - От 5000 руб.">Комплексная подробная диагностика развития <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Индивидуальное занятие с детьми до 3 лет - От 5000 руб.">Индивидуальное занятие с детьми до 3 лет <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Индивидуальное занятие по подготовке к школе - От 5000 руб.">Индивидуальное занятие по подготовке к школе <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Разовое занятие логопеда-дефектолога - От 5000 руб.">Разовое занятие логопеда-дефектолога <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Логопедическое занятие при мономорфной дислалии - От 5000 руб.">Логопедическое занятие при мономорфной дислалии <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Логопедическое занятие при полиморфной дислалии - От 5000 руб.">Логопедическое занятие при полиморфной дислалии <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Логопедическое занятие при ФФНР - От 5000 руб.">Логопедическое занятие при ФФНР <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Логопедическое занятие при ринолалии - От 5000 руб.">Логопедическое занятие при ринолалии <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Занятие при темповой задержке речи, ЗРР - От 5000 руб.">Занятие при темповой задержке речи, ЗРР <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Логопедическое занятие при алалии - От 5000 руб.">Логопедическое занятие при алалии <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Логопедическое занятие при ОНР I уровня - От 5000 руб.">Логопедическое занятие при ОНР I уровня <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Логопедическое занятие при ОНР II уровня - От 5000 руб.">Логопедическое занятие при ОНР II уровня <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Логопедическое занятие при ОНР III уровня - От 5000 руб.">Логопедическое занятие при ОНР III уровня <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Логопедическое занятие при дисграфии, дислексии - От 5000 руб.">Логопедическое занятие при дисграфии, дислексии <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Занятие с дефектологом - От 5000 руб.">Занятие с дефектологом <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Комбинированное занятие при ЗПР - От 5000 руб.">Комбинированное занятие при ЗПР <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Комбинированное занятие при ЗПРР - От 5000 руб.">Комбинированное занятие при ЗПРР <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Комбинированное занятие при особенностях эмоционально-волевой сферы - От 5000 руб.">Комбинированное занятие при особенностях эмоционально-волевой сферы <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Комбинированное занятие при гиперактивности, СДВГ - От 5000 руб.">Комбинированное занятие при гиперактивности, СДВГ <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Комбинированное занятие при РДА, РАС и аутическом типе развития - От 5000 руб.">Комбинированное занятие при РДА, РАС и аутическом типе развития <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Комбинированное занятие при ДЦП, синдроме Дауна, генетических синдромах - От 5000 руб.">Комбинированное занятие при ДЦП, синдроме Дауна, генетических синдромах <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Комбинированное занятие при УО - От 5000 руб.">Комбинированное занятие при УО <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Логопедический массаж, 30 минут - От 4500 руб.">Логопедический массаж, 30 минут <span>От 4500 руб.</span></button>
-            <button type="button" class="service-option" data-value="Афазия, дисфагия - От 4500 руб.">Афазия, дисфагия <span>От 4500 руб.</span></button>
-            <button type="button" class="service-option" data-value="Постановка голоса, дикция и техника речи - От 5000 руб.">Постановка голоса, дикция и техника речи <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="При нарушении функции ЛОР-органов - От 5000 руб.">При нарушении функции ЛОР-органов <span>От 5000 руб.</span></button>
-            <button type="button" class="service-option" data-value="Постановка и автоматизация звука - От 4500 руб.">Постановка и автоматизация звука <span>От 4500 руб.</span></button>
+            <button type="button" class="service-option" data-value="Комплексная подробная диагностика развития - От 6000 руб.">Комплексная подробная диагностика развития <span>От 6000 руб.</span></button>
+            <button type="button" class="service-option" data-value="Индивидуальное занятие с детьми раннего возраста до 3 лет - 4400 руб.">Индивидуальное занятие с детьми раннего возраста до 3 лет <span>4400 руб.</span></button>
+            <button type="button" class="service-option" data-value="Индивидуальное занятие по подготовке к школе - 4400 руб.">Индивидуальное занятие по подготовке к школе <span>4400 руб.</span></button>
+            <button type="button" class="service-option" data-value="Разовое занятие логопеда-дефектолога - 4000 руб.">Разовое занятие логопеда-дефектолога <span>4000 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедическое занятие при мономорфной дислалии - 4500 руб.">Логопедическое занятие при мономорфной дислалии <span>4500 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедическое занятие при полиморфной дислалии - 4500 руб.">Логопедическое занятие при полиморфной дислалии <span>4500 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедическое занятие при ФФНР - 4500 руб.">Логопедическое занятие при ФФНР <span>4500 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедическое занятие при ринолалии - 4500 руб.">Логопедическое занятие при ринолалии <span>4500 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедическое занятие при темповой задержке речи, ЗРР - 5000 руб.">Логопедическое занятие при темповой задержке речи, ЗРР <span>5000 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедическое занятие при алалии - 4500 руб.">Логопедическое занятие при алалии <span>4500 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедическое занятие при ОНР I уровня - 4600 руб.">Логопедическое занятие при ОНР I уровня <span>4600 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедическое занятие при ОНР II уровня - 4500 руб.">Логопедическое занятие при ОНР II уровня <span>4500 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедическое занятие при ОНР III уровня - 4500 руб.">Логопедическое занятие при ОНР III уровня <span>4500 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедическое занятие при дисграфии, дислексии - 4600 руб.">Логопедическое занятие при дисграфии, дислексии <span>4600 руб.</span></button>
+            <button type="button" class="service-option" data-value="Занятие с дефектологом - 4600 руб.">Занятие с дефектологом <span>4600 руб.</span></button>
+            <button type="button" class="service-option" data-value="Комбинированное занятие при ЗПР - 4600 руб.">Комбинированное занятие при ЗПР <span>4600 руб.</span></button>
+            <button type="button" class="service-option" data-value="Комбинированное занятие при ЗПРР - 4500 руб.">Комбинированное занятие при ЗПРР <span>4500 руб.</span></button>
+            <button type="button" class="service-option" data-value="Комбинированное занятие при особенностях эмоционально-волевой сферы - 4700 руб.">Комбинированное занятие при особенностях эмоционально-волевой сферы <span>4700 руб.</span></button>
+            <button type="button" class="service-option" data-value="Комбинированное занятие при гиперактивности, СДВГ - 5700 руб.">Комбинированное занятие при гиперактивности, СДВГ <span>5700 руб.</span></button>
+            <button type="button" class="service-option" data-value="Комбинированное занятие при РДА, РАС и аутическом типе развития - 6700 руб.">Комбинированное занятие при РДА, РАС и аутическом типе развития <span>6700 руб.</span></button>
+            <button type="button" class="service-option" data-value="Комбинированное занятие при ДЦП, синдроме Дауна, генетических синдромах - 5700 руб.">Комбинированное занятие при ДЦП, синдроме Дауна, генетических синдромах <span>5700 руб.</span></button>
+            <button type="button" class="service-option" data-value="Комбинированное занятие при УО - 5700 руб.">Комбинированное занятие при УО <span>5700 руб.</span></button>
+            <button type="button" class="service-option" data-value="Афазия, дисфагия - От 5000 руб.">Афазия, дисфагия <span>От 5000 руб.</span></button>
+            <button type="button" class="service-option" data-value="Постановка голоса, дикция и техника речи - 5000 руб.">Постановка голоса, дикция и техника речи <span>5000 руб.</span></button>
+            <button type="button" class="service-option" data-value="При нарушении функции ЛОР-органов - 4000 руб.">При нарушении функции ЛОР-органов <span>4000 руб.</span></button>
+            <button type="button" class="service-option" data-value="Постановка и автоматизация звука - 4000 руб.">Постановка и автоматизация звука <span>4000 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедический массаж, 30 минут - 5000 руб.">Логопедический массаж, 30 минут <span>5000 руб.</span></button>
+            <button type="button" class="service-option" data-value="Логопедический массаж курсом 10-15 сеансов - 6000 руб. / сеанс">Логопедический массаж курсом 10-15 сеансов <span>6000 руб. / сеанс</span></button>
+            <button type="button" class="service-option" data-value="Общий детский массаж курсом 10-15 сеансов до 6 лет - 6000 руб. / сеанс">Общий детский массаж курсом 10-15 сеансов до 6 лет <span>6000 руб. / сеанс</span></button>
+            <button type="button" class="service-option" data-value="Онлайн-формат - 4000 руб.">Онлайн-формат <span>4000 руб.</span></button>
             <div class="service-empty" id="serviceEmpty">Ничего не найдено</div>
           </div>
         </div>
@@ -622,7 +358,7 @@
       <div class="logo-icon footer-logo-icon">А</div>
       <div>
         <div class="footer-name">Братикова Анна</div>
-        <div class="footer-sub">Коррекционный педагог, логопед, дефектолог, афазиолог, заиколог</div>
+        <div class="footer-sub">Коррекционный педагог, логопед, дефектолог, афазиолог</div>
       </div>
     </div>
     <div class="footer-socials">
@@ -632,6 +368,6 @@
     </div>
   </footer>
 
-  <script src="main.js"></script>
+  <script src="main.js?v=20260528-admin-auth"></script>
 </body>
 </html>
