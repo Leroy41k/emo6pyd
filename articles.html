@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Статьи - Братикова Анна</title>
-  <link rel="stylesheet" href="css/style.css?v=20260528-admin-auth">
+  <link rel="stylesheet" href="css/style.css?v=20260601-payment-skeleton">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -33,9 +33,6 @@
         <li><a href="index.html#adults" class="nav-link">Взрослым</a></li>
       </ul>
 
-      <div class="nav-right">
-        <button class="btn-primary" onclick="scrollToSection('#articleRequest')">Предложить тему</button>
-      </div>
     </div>
   </nav>
 
@@ -79,13 +76,27 @@
     </section>
 
     <section class="article-request" id="articleRequest">
-      <div class="article-request-inner">
+      <div class="article-request-inner article-chat-layout">
         <div>
-          <div class="section-label">Развитие раздела</div>
-          <h2>Предложите тему для статьи</h2>
-          <p>Если есть вопрос о речи, обучении, диагностике или восстановлении, можно отправить его сюда. Я сохраню тему и смогу использовать её для будущих материалов.</p>
+          <div class="section-label">Вопрос специалисту</div>
+          <h2>Задайте вопрос по теме речи или обучения</h2>
+          <p>Напишите сообщение здесь. Ответ появится в этом же диалоге после обработки в админпанели.</p>
         </div>
-        <form class="article-suggest-form" id="articleSuggestForm">
+        <div class="article-chat" aria-live="polite">
+          <div class="article-chat-messages" id="articleChatMessages">
+            <div class="article-chat-empty">Пока сообщений нет. Начните диалог первым вопросом.</div>
+          </div>
+          <form class="article-chat-form" id="articleChatForm">
+            <input type="text" id="chatWebsite" name="website" tabindex="-1" autocomplete="off" class="spam-field" aria-hidden="true">
+            <input type="hidden" id="chatStartedAt" name="form_started_at">
+            <input type="text" id="chatName" placeholder="Ваше имя">
+            <textarea id="chatMessage" placeholder="Ваш вопрос" required></textarea>
+            <input type="text" id="chatCheck" inputmode="numeric" autocomplete="off" placeholder="2 + 3 = ?">
+            <button type="submit" class="btn-primary">Отправить</button>
+            <div class="form-message" id="chatStatus"></div>
+          </form>
+        </div>
+        <form class="article-suggest-form legacy-article-suggest-form" id="articleSuggestForm">
           <input type="text" id="suggestWebsite" name="website" tabindex="-1" autocomplete="off" class="spam-field" aria-hidden="true">
           <input type="hidden" id="suggestStartedAt" name="form_started_at">
           <input type="text" id="suggestName" placeholder="Ваше имя">
@@ -156,6 +167,111 @@
 
     loadArticles();
 
+    const articleChatForm = document.getElementById('articleChatForm');
+    const articleChatMessages = document.getElementById('articleChatMessages');
+    const chatStatus = document.getElementById('chatStatus');
+    const chatStartedAt = document.getElementById('chatStartedAt');
+    const chatTokenKey = 'article_chat_thread_token';
+
+    function createChatToken() {
+      if (window.crypto?.getRandomValues) {
+        const bytes = new Uint8Array(18);
+        window.crypto.getRandomValues(bytes);
+        return Array.from(bytes, byte => byte.toString(36).padStart(2, '0')).join('');
+      }
+      return 'chat_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 16);
+    }
+
+    function getChatToken() {
+      let token = localStorage.getItem(chatTokenKey);
+      if (!token) {
+        token = createChatToken();
+        localStorage.setItem(chatTokenKey, token);
+      }
+      return token;
+    }
+
+    function renderChatMessages(messages) {
+      if (!articleChatMessages) return;
+      if (!Array.isArray(messages) || messages.length === 0) {
+        articleChatMessages.innerHTML = '<div class="article-chat-empty">Пока сообщений нет. Начните диалог первым вопросом.</div>';
+        return;
+      }
+
+      articleChatMessages.innerHTML = messages.map(item => `
+        <div class="article-chat-message ${item.author === 'admin' ? 'admin' : 'visitor'}">
+          <div class="article-chat-meta">${item.author === 'admin' ? 'Ответ специалиста' : escapeHtml(item.visitor_name || 'Вы')} · ${escapeHtml(item.created_at || '')}</div>
+          <div>${escapeHtml(item.message || '')}</div>
+        </div>
+      `).join('');
+      articleChatMessages.scrollTop = articleChatMessages.scrollHeight;
+    }
+
+    async function loadArticleChat() {
+      if (!articleChatMessages) return;
+      try {
+        const res = await fetch('backend/api.php?action=article_chat&thread_token=' + encodeURIComponent(getChatToken()));
+        if (!res.ok) throw new Error('chat load failed');
+        const data = await res.json();
+        renderChatMessages(data?.data?.messages || []);
+      } catch (error) {
+        articleChatMessages.innerHTML = '<div class="article-chat-empty">Не удалось загрузить диалог.</div>';
+      }
+    }
+
+    function showChatStatus(text, type) {
+      if (!chatStatus) return;
+      chatStatus.textContent = text;
+      chatStatus.className = 'form-message ' + type;
+    }
+
+    if (chatStartedAt) {
+      chatStartedAt.value = String(Date.now());
+    }
+
+    articleChatForm?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const messageInput = document.getElementById('chatMessage');
+      const payload = {
+        thread_token: getChatToken(),
+        name: document.getElementById('chatName').value.trim(),
+        message: messageInput.value.trim(),
+        check_answer: document.getElementById('chatCheck').value.trim(),
+        website: document.getElementById('chatWebsite').value.trim(),
+        form_started_at: Number(document.getElementById('chatStartedAt').value || 0)
+      };
+
+      if (!payload.message) {
+        showChatStatus('Напишите вопрос.', 'error');
+        return;
+      }
+      if (payload.check_answer !== '5') {
+        showChatStatus('Ответьте на проверочный вопрос.', 'error');
+        return;
+      }
+
+      try {
+        const res = await fetch('backend/api.php?action=article_chat_send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (!res.ok || !data.success) throw new Error(data.message || 'Не удалось отправить сообщение');
+        messageInput.value = '';
+        document.getElementById('chatCheck').value = '';
+        if (chatStartedAt) chatStartedAt.value = String(Date.now());
+        showChatStatus('Сообщение отправлено.', 'success');
+        await loadArticleChat();
+      } catch (error) {
+        showChatStatus(error.message || 'Ошибка отправки.', 'error');
+      }
+    });
+
+    loadArticleChat();
+    setInterval(loadArticleChat, 15000);
+
     const articleSuggestForm = document.getElementById('articleSuggestForm');
     const suggestMessage = document.getElementById('suggestMessage');
     const suggestStartedAt = document.getElementById('suggestStartedAt');
@@ -203,6 +319,6 @@
       suggestMessage.className = 'form-message ' + type;
     }
   </script>
-  <script src="main.js?v=20260528-admin-auth"></script>
+  <script src="main.js?v=20260601-payment-skeleton"></script>
 </body>
 </html>

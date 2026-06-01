@@ -64,6 +64,49 @@ if (formStartedAt) {
   formStartedAt.value = String(Date.now());
 }
 
+function normalizeRuPhone(value) {
+  const digits = String(value || '').replace(/\D+/g, '');
+  if (digits.length === 10 && digits.startsWith('9')) return '7' + digits;
+  if (digits.length === 11 && digits.startsWith('8')) return '7' + digits.slice(1);
+  return digits;
+}
+
+function isValidRuPhone(value) {
+  const digits = normalizeRuPhone(value);
+  return /^79\d{9}$/.test(digits) && !/(\d)\1{6,}/.test(digits);
+}
+
+function getAmountFromText(value) {
+  const match = String(value || '').replace(/\s+/g, '').match(/(\d{3,6})/);
+  return match ? Number(match[1]) : 4500;
+}
+
+function buildPaymentUrl(service, amount) {
+  const params = new URLSearchParams({
+    service,
+    amount: String(amount)
+  });
+  return 'payment.html?' + params.toString();
+}
+
+function initDemoPaymentButtons() {
+  document.querySelectorAll('.service-card .price-row').forEach(row => {
+    if (row.querySelector('.pay-link')) return;
+
+    const card = row.closest('.service-card');
+    const title = card?.querySelector('h4')?.textContent?.trim() || 'Услуга';
+    const priceText = row.querySelector('.price')?.textContent || '';
+    const amount = getAmountFromText(priceText);
+    const payLink = document.createElement('a');
+    payLink.className = 'pay-link';
+    payLink.href = buildPaymentUrl(title, amount);
+    payLink.textContent = 'Оплатить';
+    row.appendChild(payLink);
+  });
+}
+
+initDemoPaymentButtons();
+
 function normalizeSearch(text) {
   return text.toLowerCase().replace(/\s+/g, ' ').trim();
 }
@@ -147,13 +190,7 @@ if (ctaForm && formMsg && nameInput && phoneInput && serviceInput) {
       valid = false;
     }
 
-    if (!phone || phone.length < 7) {
-      phoneInput.classList.add('error');
-      valid = false;
-    }
-
-    const phoneDigits = phone.replace(/\D+/g, '');
-    if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+    if (!isValidRuPhone(phone)) {
       phoneInput.classList.add('error');
       valid = false;
     }

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Демо-оплата - Братикова Анна</title>
+  <link rel="stylesheet" href="css/style.css?v=20260601-payment-skeleton">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a class="logo" href="index.html#home" aria-label="На главную">
+        <div class="logo-icon">А</div>
+        <div class="logo-text">
+          <div class="name">Братикова Анна</div>
+          <div class="sub">Логопед, дефектолог, афазиолог</div>
+        </div>
+      </a>
+
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="about.html" class="nav-link">О специалисте</a></li>
+        <li><a href="services.html" class="nav-link">Услуги</a></li>
+        <li><a href="articles.html" class="nav-link">Статьи</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="payment-page">
+      <div class="payment-shell">
+        <section class="payment-summary">
+          <div class="section-label">Демо-оплата</div>
+          <h1>Проверка сценария оплаты</h1>
+          <p>Это безопасный макет: деньги не списываются, запросы в банк не отправляются. Здесь можно проверить путь пользователя перед подключением платежного провайдера.</p>
+
+          <div class="payment-order">
+            <span>Услуга</span>
+            <strong id="paymentService">Консультация / диагностика</strong>
+          </div>
+          <div class="payment-order">
+            <span>Сумма</span>
+            <strong id="paymentAmount">4500 ₽</strong>
+          </div>
+          <div class="payment-order">
+            <span>Статус</span>
+            <strong id="paymentStatus">Ожидает оплаты</strong>
+          </div>
+        </section>
+
+        <section class="payment-card">
+          <form id="paymentDemoForm">
+            <label>
+              Имя
+              <input type="text" id="payerName" placeholder="Ваше имя" required>
+            </label>
+            <label>
+              Телефон
+              <input type="tel" id="payerPhone" placeholder="+7 900 000-00-00" required>
+            </label>
+            <label>
+              Номер карты
+              <input type="text" id="cardNumber" inputmode="numeric" placeholder="4242 4242 4242 4242" maxlength="19" required>
+            </label>
+            <div class="payment-card-row">
+              <label>
+                Срок
+                <input type="text" id="cardDate" inputmode="numeric" placeholder="12/30" maxlength="5" required>
+              </label>
+              <label>
+                CVC
+                <input type="text" id="cardCvc" inputmode="numeric" placeholder="123" maxlength="3" required>
+              </label>
+            </div>
+            <button type="submit" class="btn-primary" id="payButton">Оплатить демо</button>
+            <button type="button" class="btn-outline" id="failButton">Сымитировать отказ</button>
+            <div class="form-message" id="paymentMessage"></div>
+          </form>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="main.js?v=20260601-payment-skeleton"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const service = params.get('service') || 'Консультация / диагностика';
+    const amount = Number(params.get('amount') || 4500);
+    const orderId = 'demo-' + Date.now().toString(36);
+
+    const serviceEl = document.getElementById('paymentService');
+    const amountEl = document.getElementById('paymentAmount');
+    const statusEl = document.getElementById('paymentStatus');
+    const messageEl = document.getElementById('paymentMessage');
+    const form = document.getElementById('paymentDemoForm');
+    const payButton = document.getElementById('payButton');
+    const failButton = document.getElementById('failButton');
+
+    serviceEl.textContent = service;
+    amountEl.textContent = amount.toLocaleString('ru-RU') + ' ₽';
+
+    function setPaymentState(status, message, type) {
+      statusEl.textContent = status;
+      messageEl.textContent = message;
+      messageEl.className = 'form-message ' + type;
+    }
+
+    function saveDemoPayment(status) {
+      const payments = JSON.parse(localStorage.getItem('demo_payments') || '[]');
+      payments.unshift({
+        orderId,
+        service,
+        amount,
+        status,
+        createdAt: new Date().toISOString()
+      });
+      localStorage.setItem('demo_payments', JSON.stringify(payments.slice(0, 20)));
+    }
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      payButton.disabled = true;
+      failButton.disabled = true;
+      setPaymentState('Проверяем платеж', 'Демо-платеж обрабатывается...', 'success');
+
+      window.setTimeout(() => {
+        payButton.disabled = false;
+        failButton.disabled = false;
+        saveDemoPayment('paid');
+        setPaymentState('Оплачено', 'Демо-оплата прошла успешно. В реальной интеграции здесь будет webhook от платежной системы.', 'success');
+      }, 900);
+    });
+
+    failButton.addEventListener('click', () => {
+      saveDemoPayment('failed');
+      setPaymentState('Оплата отклонена', 'Сымитирован отказ банка. Пользователь может попробовать еще раз.', 'error');
+    });
+  </script>
+</body>
+</html>
